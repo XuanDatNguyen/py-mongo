@@ -21,9 +21,9 @@ class Student():
         student_id = students.insert_one(student).inserted_id
         print(F"\nTạo thành công sinh viên: {student_id}\n")
 
-    # Tìm những sinh viên có cùng thông tin về điểm số
-    def findStudentEqualScore():
-        print("findStudentEqualPoint")
+    # Hiển thị các sinh viên cùng thông tin về điểm số
+    def getAllStudentInfo(self):
+        return students.find({})
 
     # Tìm kiếm sinh viên có điểm môn xxx > yyy
     def findStudentByCompareScore(self, subject1, subject2):

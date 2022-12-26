@@ -20,7 +20,8 @@ while (True):
     elif key == 1:
         student.createStudent()
     elif key == 2:
-        pass
+        std = student.getAllStudentInfo()
+        student.showStudent(std)
     elif key == 3:
         student_id = input("Nhập vào id sinh viên cần xóa: ")
         student.deleteStudent(student_id)
