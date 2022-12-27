@@ -27,11 +27,17 @@ class Student():
 
     # Tìm kiếm sinh viên có điểm môn xxx > yyy
     def findStudentByCompareScore(self, subject1, subject2):
-        results = []
         dict = {"TO": 0, "LY": 1, "HO": 2}
-        for std in students.find({}):
-            if std["scores"][dict[subject1]] > std["scores"][dict[subject2]]:
-                results.append(std)
+        results = students.find(
+            {
+                "$expr": {
+                    "$gt": [
+                        {"$arrayElemAt": ["$scores", dict[subject1]]},
+                        {"$arrayElemAt": ["$scores", dict[subject2]]}
+                    ]
+                }
+            }
+        )
         return results
 
     # Xóa sinh viên với ID
